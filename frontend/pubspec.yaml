@@ -50,6 +50,11 @@ flutter:
     - assets/icons/drawer_Icon.svg
     - assets/icons/inventory.svg
     - assets/icons/tower.svg
+    - assets/icons/logo.svg
+    - assets/icons/employees.svg
+    - assets/icons/transactions.svg
+    - assets/icons/settings.svg
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -12,6 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        EmployeeScreen.routeName: (ctx) => EmployeeScreen(),
+        LoginScreen.routeName: (ctx) => LoginScreen(),
+        TransactionsScreen.routeName: (ctx) => TransactionsScreen(),
+        ProfileScreen.routeName: (ctx) => ProfileScreen()
+      },
       debugShowCheckedModeBanner: false,
       home: EmployeeScreen(),
     );

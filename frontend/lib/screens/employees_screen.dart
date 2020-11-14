@@ -1,10 +1,12 @@
 import 'package:Inventorio/models/theme_colors.dart';
 import 'package:Inventorio/screens/profile_screen.dart';
 import 'package:Inventorio/widgets/appDrawer.dart';
+import 'package:Inventorio/widgets/employeeWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class EmployeeScreen extends StatelessWidget {
+  static const routeName = '/employees-screen';
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -12,9 +14,9 @@ class EmployeeScreen extends StatelessWidget {
     final widthRatio = deviceSize.width / 411;
     return Scaffold(
       drawer: AppDrawer(),
-      backgroundColor: ThemeConstants().pink,
+      backgroundColor: ThemeConstants().blue,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(589.0 * heightRatio),
+        preferredSize: Size.fromHeight(550.0 * heightRatio),
         child: AppBar(
           leading: Builder(
             builder: (BuildContext context) {
@@ -58,7 +60,7 @@ class EmployeeScreen extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.only(top: heightRatio * 13),
-                child: CustomText().mediumHeaderText('Sr Employee'),
+                child: CustomText().mediumHeaderText('Sr Employee', size: 20),
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -67,25 +69,26 @@ class EmployeeScreen extends StatelessWidget {
                     left: 15 * widthRatio,
                     right: 15 * widthRatio),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    CustomText().mediumHeaderText('DoJ: 26/05/2020'),
-                    CustomText().mediumHeaderText('Transactions: 69')
+                    CustomText().mediumHeaderText('DoJ: 26/05/2020', size: 15),
+                    CustomText().mediumHeaderText('Transactions: 69', size: 15)
                   ],
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 22 * heightRatio),
+                margin: EdgeInsets.only(top: 10 * heightRatio),
                 height: 71 * heightRatio,
                 width: 322 * widthRatio,
                 child: RaisedButton(
                   elevation: 8,
-                  color: ThemeConstants().pink,
+                  color: ThemeConstants().blue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(17),
                   ),
                   onPressed: () {},
-                  child: CustomText().semiBoldText('Transactions', 30),
+                  child:
+                      CustomText().semiBoldText('Transactions', fontsize: 30),
                 ),
               )
             ],
@@ -93,37 +96,34 @@ class EmployeeScreen extends StatelessWidget {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
-            height: 2.2,
-            width: widthRatio * 71,
+          Divider(
+            thickness: 2,
+            indent: 170 * widthRatio,
+            endIndent: 170 * widthRatio,
+            height: 30,
             color: Colors.white,
           ),
-          Center(
+          Expanded(
             child: Container(
-              padding: EdgeInsets.only(bottom: 5),
-              height: heightRatio * 54,
-              width: widthRatio * 160,
-              child: RaisedButton(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),
-                color: ThemeConstants().grey,
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(Icons.exit_to_app),
-                    CustomText().mediumText('Log Out'),
-                  ],
+              padding: EdgeInsets.only(left: 10 * widthRatio),
+              child: NotificationListener<OverscrollIndicatorNotification>(
+                // ignore: missing_return
+                onNotification: (overscroll) {
+                  overscroll.disallowGlow();
+                },
+                child: ListView.builder(
+                  itemCount: 4,
+                  itemBuilder: (ctx, i) {
+                    return EmployeeWidget(
+                      title: 'Roman Reigns',
+                      subtitle: 'Last Active : Today 13:45 ',
+                    );
+                  },
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
     );

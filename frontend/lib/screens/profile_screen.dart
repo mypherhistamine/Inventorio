@@ -1,8 +1,8 @@
 import 'package:Inventorio/models/theme_colors.dart';
 import 'package:flutter/material.dart';
 
-
 class ProfileScreen extends StatelessWidget {
+  static const routeName = '/profile-screen';
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;

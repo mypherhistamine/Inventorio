@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key key}) : super(key: key);
 
+  static const routeName = '/login-screen';
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -21,7 +23,6 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   SvgPicture.asset('assets/icons/tower.svg'),
                   Container(
-                    //color: Colors.white,
                     margin: EdgeInsets.only(top: 66 * heightRatio),
                     // height: 80 * heightRatio,
                     width: 310 * widthRatio,
@@ -29,13 +30,12 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 20, color: Colors.white),
                       enableSuggestions: true,
                       decoration: InputDecoration(
-                          hoverColor: Colors.yellow,
-                          focusColor: Colors.red,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(14)),
-                          hintText: 'Employer ID',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          fillColor: Colors.red),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        hintText: 'Employer ID',
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
                     ),
                   ),
                   Container(
@@ -47,18 +47,18 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 20, color: Colors.white),
                       enableSuggestions: true,
                       decoration: InputDecoration(
-                          hoverColor: Colors.yellow,
-                          focusColor: Colors.red,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(14)),
-                          hintText: 'Password',
-                          hintStyle: TextStyle(color: Colors.grey),
-                          fillColor: Colors.red),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          
+                        ),
+                        hintText: 'Password',
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
                     ),
                   ),
                   Container(
-                    height: 50*heightRatio,
-                    width: 186*widthRatio,
+                    height: 50 * heightRatio,
+                    width: 186 * widthRatio,
                     margin: EdgeInsets.only(top: 50 * heightRatio),
                     child: RaisedButton(
                       onPressed: () {},

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class TransactionsScreen extends StatelessWidget {
+  static const routeName = '/transactions-screen';
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -49,13 +50,19 @@ class TransactionsScreen extends StatelessWidget {
                 margin: EdgeInsets.only(top: 140 * heightRatio),
                 width: 353 * widthRatio,
                 height: 440 * heightRatio,
-                child: ListView.builder(
-                  itemBuilder: (ctx, i) {
-                    return TransactionItemWidget(
-                      size: deviceSize,
-                    );
+                child: NotificationListener<OverscrollIndicatorNotification>(
+                  // ignore: missing_return
+                  onNotification: (overscroll) {
+                    overscroll.disallowGlow();
                   },
-                  itemCount: 5,
+                  child: ListView.builder(
+                    itemBuilder: (ctx, i) {
+                      return TransactionItemWidget(
+                        size: deviceSize,
+                      );
+                    },
+                    itemCount: 5,
+                  ),
                 ),
               )
             ],

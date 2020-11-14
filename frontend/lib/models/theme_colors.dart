@@ -9,6 +9,7 @@ class ThemeConstants {
   Color blue = Color(0xff44539F);
   Color yellow = Color(0xffD4B132);
   Color purple = Color(0xff80458F);
+  Color opaqueWhite = Color.fromRGBO(255, 255, 255, 0.6);
 }
 
 class CustomText {
@@ -42,7 +43,7 @@ class CustomText {
     );
   }
 
-  Widget semiBoldText(String text, double fontsize) {
+  Widget semiBoldText(String text, {double fontsize}) {
     return Text(
       text,
       style: TextStyle(
